@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ICFSN 2026 · 法國・摩納哥 旅遊計劃</title>
+<link rel="manifest" href="manifest.json"/>
+<link rel="icon" href="icon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0a0e1a;
+    --deep: #0f1628;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --accent: #4a90d9;
+    --soft: rgba(201,168,76,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(74,144,217,.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(201,168,76,.12) 0%, transparent 55%),
+      linear-gradient(160deg, #0a0e1a 0%, #0f1628 50%, #0c1220 100%);
+  }
+
+  /* subtle star dots */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 8%,  rgba(255,255,255,.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 15%, rgba(255,255,255,.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 5%,  rgba(255,255,255,.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 30%, rgba(255,255,255,.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 60%, rgba(255,255,255,.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 90%, rgba(255,255,255,.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 25% 75%, rgba(201,168,76,.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 70% 55%, rgba(201,168,76,.4) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp .8s ease .2s forwards;
+  }
+
+  .hero-flags {
+    font-size: 52px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp .8s ease .35s forwards;
+    filter: drop-shadow(0 4px 16px rgba(201,168,76,.3));
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff 30%, var(--gold-light) 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp .8s ease .5s forwards;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: rgba(245,240,232,.55);
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp .8s ease .65s forwards;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 36px;
+    opacity: 0;
+    animation: fadeUp .8s ease .8s forwards;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp .8s ease .95s forwards;
+  }
+
+  .pill {
+    background: rgba(201,168,76,.1);
+    border: 1px solid rgba(201,168,76,.3);
+    color: var(--gold-light);
+    border-radius: 100px;
+    padding: 7px 18px;
+    font-size: 12px;
+    letter-spacing: .5px;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp .8s ease 1.1s forwards;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, #a87c2a 100%);
+    color: #0a0e1a;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 24px rgba(201,168,76,.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,.45); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(245,240,232,.25);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color .2s, color .2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    animation: fadeUp .8s ease 1.4s forwards;
+  }
+  .scroll-hint span { font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,.3); text-transform: uppercase; }
+  .scroll-arrow { width: 20px; height: 20px; border-right: 1px solid rgba(255,255,255,.25); border-bottom: 1px solid rgba(255,255,255,.25); transform: rotate(45deg); animation: bounce 2s ease infinite; }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--deep);
+    border-top: 1px solid rgba(201,168,76,.15);
+    border-bottom: 1px solid rgba(201,168,76,.15);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .stat-item {
+    padding: 32px 48px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,.06);
+    flex: 1;
+    min-width: 140px;
+    max-width: 240px;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--gold-light); }
+  .stat-label { font-size: 11px; color: rgba(245,240,232,.4); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+
+  /* ── CITIES ── */
+  .section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .city-card {
+    background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: border-color .3s, transform .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .city-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(201,168,76,.08), transparent 60%);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .city-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-4px); }
+  .city-card:hover::before { opacity: 1; }
+
+  .city-emoji { font-size: 28px; margin-bottom: 12px; }
+  .city-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 6px; color: #fff; }
+  .city-dates { font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 10px; }
+  .city-desc { font-size: 13px; color: rgba(245,240,232,.5); line-height: 1.7; }
+
+  /* ── TIMELINE ── */
+  .timeline-section { background: var(--deep); }
+  .timeline-section .section { padding: 80px 24px; }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,.1));
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -29px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--deep);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(201,168,76,.5);
+  }
+  .tl-date {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    min-width: 80px;
+    padding-top: 2px;
+  }
+  .tl-content { flex: 1; }
+  .tl-title { font-weight: 500; font-size: 15px; margin-bottom: 4px; }
+  .tl-sub { font-size: 12px; color: rgba(245,240,232,.4); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(255,255,255,.06);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 12px;
+    color: rgba(245,240,232,.25);
+    letter-spacing: .5px;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50%       { transform: rotate(45deg) translateY(5px); }
+  }
+
+  @media (max-width: 600px) {
+    .stat-item { padding: 24px 16px; min-width: 100px; }
+    .stat-num { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">ICFSN 2026 · 旅遊記錄</p>
+  <div class="hero-flags">🇫🇷 🇲🇨</div>
+  <h1 class="hero-title">法國・摩納哥</h1>
+  <p class="hero-subtitle">2026年7月3日–14日 · Yi Cheng Hou &amp; Hong Yi Lai</p>
+  <div class="hero-divider"></div>
+  <div class="hero-pills">
+    <span class="pill">📍 巴黎</span>
+    <span class="pill">📍 馬賽</span>
+    <span class="pill">📍 亞維儂</span>
+    <span class="pill">📍 尼斯</span>
+    <span class="pill">📍 坎城</span>
+    <span class="pill">📍 摩納哥</span>
+  </div>
+  <div class="cta-row">
+    <a href="行程路線比對表.html" class="btn-primary">📋 查看行程路線比對表</a>
+    <a href="#cities" class="btn-secondary">探索城市</a>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">行程天數</div></div>
+  <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">城市</div></div>
+  <div class="stat-item"><div class="stat-num">20</div><div class="stat-label">Maps 連結</div></div>
+  <div class="stat-item"><div class="stat-num">163</div><div class="stat-label">項目全部通過</div></div>
+</div>
+
+<!-- CITIES -->
+<section id="cities">
+  <div class="section">
+    <p class="section-eyebrow">✦ Destinations</p>
+    <h2 class="section-title">六座城市的旅程</h2>
+    <div class="cities-grid">
+      <div class="city-card">
+        <div class="city-emoji">🗼</div>
+        <div class="city-name">巴黎</div>
+        <div class="city-dates">7/04 – 7/06 · 3天</div>
+        <div class="city-desc">奧賽博物館、羅浮宮、聖母院、蒙馬特、香榭麗舍、凱旋門……在光之城展開旅程。</div>
+      </div>
+      <div class="city-card">
+        <div class="city-emoji">⛵</div>
+        <div class="city-name">馬賽</div>
+        <div class="city-dates">7/07 – 7/09 · 2天</div>
+        <div class="city-desc">法國最古老的港口城市，舊港風情、守護聖母院，品嚐道地馬賽魚湯。</div>
+      </div>
+      <div class="city-card">
+        <div class="city-emoji">🏛️</div>
+        <div class="city-name">亞維儂</div>
+        <div class="city-dates">7/08 · 一日遊</div>
+        <div class="city-desc">普羅旺斯的歷史重鎮，造訪教皇宮與那座著名的斷橋，途經薰衣草博物館。</div>
+      </div>
+      <div class="city-card">
+        <div class="city-emoji">🌊</div>
+        <div class="city-name">尼斯</div>
+        <div class="city-dates">7/09 – 7/13 · 4天</div>
+        <div class="city-desc">蔚藍海岸的陽光首都，英國人大道、花卉市場、舊城、城堡山丘一覽無遺。</div>
+      </div>
+      <div class="city-card">
+        <div class="city-emoji">🎬</div>
+        <div class="city-name">坎城</div>
+        <div class="city-dates">7/10 · 一日遊</div>
+        <div class="city-desc">電影節慶宮、Le Suquet山城、Forville市場，感受法國蔚藍海岸的迷人魅力。</div>
+      </div>
+      <div class="city-card">
+        <div class="city-emoji">🎰</div>
+        <div class="city-name">摩納哥</div>
+        <div class="city-dates">7/12 · 一日遊</div>
+        <div class="city-desc">歐洲最小的國家，親王宮、蒙地卡羅賭場，徜徉Port Hercule遊艇港灣。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="section">
+    <p class="section-eyebrow">✦ Itinerary</p>
+    <h2 class="section-title">10天行程時間軸</h2>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/03</div><div class="tl-content"><div class="tl-title">✈️ 出發</div><div class="tl-sub">從台灣飛往巴黎，抵達 CDG 機場</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/04</div><div class="tl-content"><div class="tl-title">🗼 巴黎 Day 1</div><div class="tl-sub">奧賽博物館 → 艾菲爾鐵塔 → 塞納河畔</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/05</div><div class="tl-content"><div class="tl-title">🖼️ 巴黎 Day 2</div><div class="tl-sub">羅浮宮 → 橘園 → 歌劇院 → 拉法葉百貨</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/06</div><div class="tl-content"><div class="tl-title">⛪ 巴黎 Day 3</div><div class="tl-sub">聖母院 → 瑪黑區 → 蒙馬特 → 香榭麗舍 → 凱旋門</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/07</div><div class="tl-content"><div class="tl-title">🚄 巴黎 → 馬賽</div><div class="tl-sub">TGV 高速列車，抵達後探訪舊港與守護聖母院</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/08</div><div class="tl-content"><div class="tl-title">🌿 馬賽 → 亞維儂</div><div class="tl-sub">薰衣草博物館 → 教皇宮 → 斷橋（Pont Saint-Bénézet）</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/09</div><div class="tl-content"><div class="tl-title">🌊 馬賽 → 尼斯</div><div class="tl-sub">FlixBus 沿蔚藍海岸，抵達後逛花卉市場與英國人大道</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/10</div><div class="tl-content"><div class="tl-title">🎬 坎城一日遊</div><div class="tl-sub">TER 列車出發，節慶宮、Le Suquet、Forville 市場</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/11</div><div class="tl-content"><div class="tl-title">🎨 尼斯深度遊</div><div class="tl-sub">夏卡爾博物館 → 舊城 → 馬賽納廣場 → 城堡山丘</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/12</div><div class="tl-content"><div class="tl-title">🎰 摩納哥一日遊</div><div class="tl-sub">親王宮 → 主教堂 → 康達明市場 → 蒙地卡羅賭場</div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">7/13</div><div class="tl-content"><div class="tl-title">✈️ 返程</div><div class="tl-sub">英國人大道最後散步 → 尼斯蔚藍海岸機場</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px">
+    <a href="行程路線比對表.html">📋 行程路線比對表</a>
+    &nbsp;·&nbsp;
+    ICFSN 2026 法國・摩納哥
+  </p>
+  <p>10天 · 6城市 · 20個 Google Maps 連結 · 163項全部審查通過</p>
+  <p style="margin-top:8px; font-size:10px; color:rgba(245,240,232,.12)">Made with ♥ · 2026年5月</p>
+</footer>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+</script>
+</body>
+</html>

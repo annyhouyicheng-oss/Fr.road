@@ -1,0 +1,28 @@
+{
+  "name": "ICFSN 2026 法國・摩納哥",
+  "short_name": "FR・MC 2026",
+  "description": "ICFSN 2026 法國・摩納哥 10天旅遊行程路線比對表",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#c9a84c",
+  "lang": "zh-TW",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable any"
+    }
+  ]
+}
