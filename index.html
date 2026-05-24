@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<title>行程路線比對表</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;background:#f5f5f5;padding:12px;font-size:13px}
+h1{text-align:center;font-size:16px;font-weight:600;color:#333;margin-bottom:12px;padding:8px 0}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.1)}
+th{background:#f0f0f0;color:#555;font-size:11px;font-weight:600;padding:10px 8px;text-align:left;border-bottom:1.5px solid #ddd}
+th:first-child{width:68px}
+th:nth-child(2){width:80px}
+td{padding:10px 8px;vertical-align:top;border-bottom:1px solid #eee;color:#333;line-height:1.5}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#fafafa}
+.date{font-weight:700;font-size:15px;color:#1a1a1a}
+.city{font-size:11px;color:#888;margin-top:2px}
+.time{font-size:14px;font-weight:600;color:#333}
+.first-stop{font-size:12px;color:#666;margin-top:2px}
+.btn-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:7px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;border:none;width:100%}
+.btn-home{background:#fff8e8;border:1.5px solid #f5c842;color:#b8860b}
+.btn-route{background:#e8f4ff;border:1.5px solid #5ba3f5;color:#1a5fb4}
+.badge{display:inline-block;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:600;margin-top:4px}
+.transit{background:#e8f4ff;color:#1a5fb4}
+.walking{background:#e8ffe8;color:#2d7a2d}
+.stops{font-size:11px;color:#666;margin-top:5px;line-height:1.6}
+.stops span{display:inline}
+.arr{color:#aaa;margin:0 2px;font-size:10px}
+.warn{color:#e55;font-size:11px;margin-top:3px}
+</style>
+</head>
+<body>
+<h1>🗺️ 行程路線比對表</h1>
+<table>
+<thead>
+<tr>
+  <th>日期</th>
+  <th>首發時間</th>
+  <th>🏠 出發按鈕（住宿→第一站）</th>
+  <th>🗺️ 路線按鈕（景點全程）</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- 7/03 -->
+<tr>
+  <td><div class="date">7/03</div><div class="city">台北<br/>啟程</div></td>
+  <td><div class="time">21:00</div><div class="first-stop">桃園機場 T2</div></td>
+  <td>
+    <span class="badge" style="background:#f0f0f0;color:#999">無需導航</span>
+    <div class="stops" style="margin-top:6px">21:00 桃園機場 T2<br/>建議提早 2–3 小時報到</div>
+  </td>
+  <td>
+    <span class="badge transit">transit</span>
+    <div class="stops" style="margin-top:4px">桃園機場 T2 <span class="arr">→</span> ✈️ KL808 起飛 23:59 <span class="arr">→</span> 阿姆斯特丹 AMS（隔日 08:15）</div>
+  </td>
+</tr>
+
+<!-- 7/04 -->
+<tr>
+  <td><div class="date">7/04</div><div class="city">巴黎<br/>Day 1</div></td>
+  <td><div class="time">13:00</div><div class="first-stop">奧賽博物館</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/64+Rue+du+Commerce+Paris+75015/Musee+d+Orsay+Paris" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">住宿 <span class="arr">→</span> Musée d'Orsay Paris</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/wUSbWhg3y4pJgUw86" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">奧賽 <span class="arr">→</span> 克萊爾路 <span class="arr">→</span> 戰神廣場 <span class="arr">→</span> 艾菲爾 <span class="arr">→</span> 遊船碼頭 <span class="arr">→</span> 投卡德侯 <span class="arr">→</span> 住宿</div>
+  </td>
+</tr>
+
+<!-- 7/05 -->
+<tr>
+  <td><div class="date">7/05</div><div class="city">巴黎<br/>Day 2</div></td>
+  <td><div class="time">09:00</div><div class="first-stop">羅浮宮</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/64+Rue+du+Commerce+Paris+75015/Louvre+Museum+Paris" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">住宿 <span class="arr">→</span> Louvre Museum Paris</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/Ao7uSRM9guvDMjwS9" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">羅浮宮 <span class="arr">→</span> 橘園 <span class="arr">→</span> 歌劇院 <span class="arr">→</span> 拉法葉百貨 <span class="arr">→</span> 住宿</div>
+  </td>
+</tr>
+
+<!-- 7/06 -->
+<tr>
+  <td><div class="date">7/06</div><div class="city">巴黎<br/>Day 3</div></td>
+  <td><div class="time">09:30</div><div class="first-stop">巴黎聖母院</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/64+Rue+du+Commerce+Paris+75015/Cathedrale+Notre-Dame+de+Paris" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">住宿 <span class="arr">→</span> Cathédrale Notre-Dame de Paris</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/TkCtcL8o9rvBvuqc6" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">聖母院 <span class="arr">→</span> 瑪黑區 <span class="arr">→</span> 蒙馬特 <span class="arr">→</span> 香榭麗舍 <span class="arr">→</span> 凱旋門 <span class="arr">→</span> 住宿</div>
+  </td>
+</tr>
+
+<!-- 7/07 -->
+<tr>
+  <td><div class="date">7/07</div><div class="city">巴黎<br/>→馬賽</div></td>
+  <td><div class="time">09:30</div><div class="first-stop">退房→里昂站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/64+Rue+du+Commerce+Paris+75015/Gare+de+Paris-Lyon" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">住宿 <span class="arr">→</span> Gare de Paris-Lyon</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/vg3XiKV1riiDKGnA9" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">里昂站 <span class="arr">→</span> 馬賽住宿 <span class="arr">→</span> 隆尚宮 <span class="arr">→</span> 肥皂店 <span class="arr">→</span> 觀光小火車 <span class="arr">→</span> 守護聖母 <span class="arr">→</span> 住宿</div>
+  </td>
+</tr>
+
+<!-- 7/08 -->
+<tr>
+  <td><div class="date">7/08</div><div class="city">馬賽<br/>→亞維儂</div></td>
+  <td><div class="time">07:30</div><div class="first-stop">住宿→聖查爾斯站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/51+Rue+Honnorat+Marseille+13003/Gare+Saint-Charles+Marseille" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">馬賽住宿 <span class="arr">→</span> Gare Saint-Charles Marseille</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/KgiVjy42aThTyzXC7" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">聖查爾斯 <span class="arr">→</span> 薰衣草博物館 <span class="arr">→</span> 教皇宮 <span class="arr">→</span> 斷橋 <span class="arr">→</span> 藝術節 <span class="arr">→</span> 亞維儂TGV站 <span class="arr">→</span> 住宿</div>
+    <div class="warn">⚠️ 薰衣草博物館 Google Maps 顯示暫時關閉，出發前請確認</div>
+  </td>
+</tr>
+
+<!-- 7/09 -->
+<tr>
+  <td><div class="date">7/09</div><div class="city">馬賽<br/>→尼斯</div></td>
+  <td><div class="time">07:30</div><div class="first-stop">住宿→FlixBus站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/51+Rue+Honnorat+Marseille+13003/Gare+Routiere+Saint-Charles+Marseille" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">馬賽住宿 <span class="arr">→</span> 巴士站（步行）</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/HK7AdNmxNEPiBK25A" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">馬賽巴士站 <span class="arr">→</span> 尼斯機場 <span class="arr">→</span> 住宿 <span class="arr">→</span> 花市 <span class="arr">→</span> Lou Pilha Leva <span class="arr">→</span> 聖雷帕拉特 <span class="arr">→</span> Florian <span class="arr">→</span> MAMAC <span class="arr">→</span> Place Garibaldi <span class="arr">→</span> 英國人大道 <span class="arr">→</span> La Merenda <span class="arr">→</span> 住宿</div>
+  </td>
+</tr>
+
+<!-- 7/10 -->
+<tr>
+  <td><div class="date">7/10</div><div class="city">坎城<br/>一日遊</div></td>
+  <td><div class="time">08:00</div><div class="first-stop">住宿→電車站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/62+Boulevard+Paul+Montel+Nice/Gare+de+Cannes" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">尼斯住宿 <span class="arr">→</span> Gare de Cannes</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/scdzEvKMAueX7NJRA" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">坎城站 <span class="arr">→</span> 節慶宮 <span class="arr">→</span> Boulangerie Fred <span class="arr">→</span> Le Suquet <span class="arr">→</span> Forville 市場 <span class="arr">→</span> 坎城海灘 <span class="arr">→</span> Rue d'Antibes <span class="arr">→</span> 住宿</div>
+  </td>
+</tr>
+
+<!-- 7/11 -->
+<tr>
+  <td><div class="date">7/11</div><div class="city">尼斯<br/>深度遊</div></td>
+  <td><div class="time">10:00</div><div class="first-stop">夏卡爾博物館</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/62+Boulevard+Paul+Montel+Nice/Musee+Chagall+Nice" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">尼斯住宿 <span class="arr">→</span> Musée Chagall Nice</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/SVNLW8Ctw2rxcgdt5" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">夏卡爾 <span class="arr">→</span> 梅德森大道 <span class="arr">→</span> 聖母大教堂 <span class="arr">→</span> 老城午餐 <span class="arr">→</span> 馬賽納廣場 <span class="arr">→</span> 城堡山丘 <span class="arr">→</span> 英大道夕陽 <span class="arr">→</span> 住宿</div>
+  </td>
+</tr>
+
+<!-- 7/12 -->
+<tr>
+  <td><div class="date">7/12</div><div class="city">摩納哥<br/>一日遊</div></td>
+  <td><div class="time">08:00</div><div class="first-stop">住宿→電車站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/62+Boulevard+Paul+Montel+Nice/Port+Hercule+Monaco" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">尼斯住宿 <span class="arr">→</span> Port Hercule Monaco</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/g1Why7CAgdY9h9cQ9" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">Port Hercule <span class="arr">→</span> 親王宮（衛兵交接11:55）<span class="arr">→</span> 主教堂 <span class="arr">→</span> 市政廳 <span class="arr">→</span> 康達明市場 <span class="arr">→</span> Bateau Bus <span class="arr">→</span> F1髮夾彎 <span class="arr">→</span> 賭場 <span class="arr">→</span> 遊客中心 <span class="arr">→</span> 火車站 <span class="arr">→</span> 住宿</div>
+  </td>
+</tr>
+
+<!-- 7/13 -->
+<tr>
+  <td><div class="date">7/13</div><div class="city">返台<br/>啟程</div></td>
+  <td><div class="time">10:00</div><div class="first-stop">退房</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/62+Boulevard+Paul+Montel+Nice/Promenade+des+Anglais+Nice" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">尼斯住宿 <span class="arr">→</span> 英國人大道</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://www.google.com/maps/dir/Promenade+des+Anglais+Nice/Nice+Cote+Azur+Airport" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">英國人大道最後時光 <span class="arr">→</span> 尼斯機場 T2（KL1478 16:55）</div>
+  </td>
+</tr>
+
+</tbody>
+</table>
+</body>
+</html>
