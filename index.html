@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<title>行程路線比對表</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;background:#f5f5f5;padding:12px;font-size:13px}
+h1{text-align:center;font-size:16px;font-weight:600;color:#333;margin-bottom:12px;padding:8px 0}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.1)}
+th{background:#f0f0f0;color:#555;font-size:11px;font-weight:600;padding:10px 8px;text-align:left;border-bottom:1.5px solid #ddd}
+th:first-child{width:68px}
+th:nth-child(2){width:80px}
+td{padding:10px 8px;vertical-align:top;border-bottom:1px solid #eee;color:#333;line-height:1.5}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#fafafa}
+.date{font-weight:700;font-size:15px;color:#1a1a1a}
+.city{font-size:11px;color:#888;margin-top:2px}
+.time{font-size:14px;font-weight:600;color:#333}
+.first-stop{font-size:12px;color:#666;margin-top:2px}
+.btn-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:7px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;border:none;width:100%}
+.btn-home{background:#fff8e8;border:1.5px solid #f5c842;color:#b8860b}
+.btn-route{background:#e8f4ff;border:1.5px solid #5ba3f5;color:#1a5fb4}
+.badge{display:inline-block;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:600;margin-top:4px}
+.transit{background:#e8f4ff;color:#1a5fb4}
+.walking{background:#e8ffe8;color:#2d7a2d}
+.stops{font-size:11px;color:#666;margin-top:5px;line-height:1.6}
+.stops span{display:inline}
+.arr{color:#aaa;margin:0 2px;font-size:10px}
+.warn{color:#e55;font-size:11px;margin-top:3px}
+
+/* 餐廳區塊 */
+.meal-section{margin-top:8px;padding-top:7px;border-top:1px dashed #e0e0e0}
+.meal-label{font-size:10px;font-weight:700;color:#999;letter-spacing:0.04em;margin-bottom:4px}
+.meal-list{font-size:11px;color:#555;line-height:1.7}
+.meal-list a{color:#1a5fb4;text-decoration:none;font-weight:600}
+.meal-list a:hover{text-decoration:underline}
+.meal-note{font-size:10px;color:#999;margin-top:1px}
+</style>
+</head>
+<body>
+<h1>🗺️ 行程路線比對表</h1>
+<table>
+<thead>
+<tr>
+  <th>日期</th>
+  <th>首發時間</th>
+  <th>🏠 出發按鈕（住宿→第一站）</th>
+  <th>🗺️ 路線按鈕（景點全程）＋🍽️ 餐廳</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- 7/03 -->
+<tr>
+  <td><div class="date">7/03</div><div class="city">台北<br/>啟程</div></td>
+  <td><div class="time">21:00</div><div class="first-stop">桃園機場 T2</div></td>
+  <td>
+    <span class="badge" style="background:#f0f0f0;color:#999">無需導航</span>
+    <div class="stops" style="margin-top:6px">21:00 桃園機場 T2<br/>建議提早 2–3 小時報到</div>
+  </td>
+  <td>
+    <span class="badge transit">transit</span>
+    <div class="stops" style="margin-top:4px">桃園機場 T2 <span class="arr">→</span> ✈️ KL808 起飛 23:59 <span class="arr">→</span> 阿姆斯特丹 AMS（隔日 08:15）</div>
+  </td>
+</tr>
+
+<!-- 7/04 -->
+<tr>
+  <td><div class="date">7/04</div><div class="city">巴黎<br/>Day 1</div></td>
+  <td><div class="time">13:00</div><div class="first-stop">奧賽博物館</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/64+Rue+du+Commerce+Paris+75015/Musee+d+Orsay+Paris" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">住宿 <span class="arr">→</span> Musée d'Orsay Paris</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/wUSbWhg3y4pJgUw86" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">奧賽 <span class="arr">→</span> 克萊爾路 <span class="arr">→</span> 戰神廣場 <span class="arr">→</span> 艾菲爾 <span class="arr">→</span> 遊船碼頭 <span class="arr">→</span> 投卡德侯 <span class="arr">→</span> 住宿</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        午餐：<a href="https://maps.app.goo.gl/mAj7TkwHqqk9oZcM8" target="_blank">Cocorico</a>（奧賽附近）<br/>
+        甜點：<a href="https://www.google.com/maps/search/?api=1&query=Carette+Trocadero+Paris" target="_blank">Carette</a>（投卡德侯）<br/>
+        晚餐：<a href="https://www.google.com/maps/search/?api=1&query=Francette+Paris" target="_blank">Francette 船屋</a> / <a href="https://www.google.com/maps/search/?api=1&query=Bistrot+Belhara+Paris" target="_blank">Bistrot Belhara</a>（鐵塔周邊）
+      </div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/05 -->
+<tr>
+  <td><div class="date">7/05</div><div class="city">巴黎<br/>Day 2</div></td>
+  <td><div class="time">09:00</div><div class="first-stop">羅浮宮開門</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/64+Rue+du+Commerce+Paris+75015/Louvre+Museum+Paris" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">住宿 <span class="arr">→</span> Louvre Museum Paris</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/Ao7uSRM9guvDMjwS9" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">羅浮宮 <span class="arr">→</span> 午餐 Loulou <span class="arr">→</span> 橘園 <span class="arr">→</span> 歌劇院 <span class="arr">→</span> 拉法葉百貨 <span class="arr">→</span> 住宿</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        午餐：<a href="https://maps.app.goo.gl/Dwieu67i1ho1dHqF7" target="_blank">Loulou</a>（橘園旁，13:00，橘園美術館前用餐）
+      </div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/06 -->
+<tr>
+  <td><div class="date">7/06</div><div class="city">巴黎<br/>Day 3</div></td>
+  <td><div class="time">09:30</div><div class="first-stop">巴黎聖母院</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/64+Rue+du+Commerce+Paris+75015/Cathedrale+Notre-Dame+de+Paris" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">住宿 <span class="arr">→</span> Cathédrale Notre-Dame de Paris</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/TkCtcL8o9rvBvuqc6" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">聖母院 <span class="arr">→</span> 瑪黑區 <span class="arr">→</span> 蒙馬特 <span class="arr">→</span> 香榭麗舍 <span class="arr">→</span> 凱旋門 <span class="arr">→</span> 住宿</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        午餐：<a href="https://www.google.com/maps/search/?api=1&query=L+As+du+Fallafel+Paris+Marais" target="_blank">L'As du Fallafel</a> / <a href="https://maps.app.goo.gl/hefHhtn8YTw9TaHm8" target="_blank">Breizh Café</a>（瑪黑區）
+      </div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/07 -->
+<tr>
+  <td><div class="date">7/07</div><div class="city">巴黎<br/>→馬賽</div></td>
+  <td><div class="time">09:30</div><div class="first-stop">退房→里昂站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/64+Rue+du+Commerce+Paris+75015/Gare+de+Paris-Lyon" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">住宿 <span class="arr">→</span> Gare de Paris-Lyon</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/vg3XiKV1riiDKGnA9" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">里昂站 <span class="arr">→</span> 馬賽住宿 <span class="arr">→</span> 隆尚宮 <span class="arr">→</span> 肥皂店 <span class="arr">→</span> 觀光小火車 <span class="arr">→</span> 守護聖母 <span class="arr">→</span> 住宿</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        晚餐（擇一）：<a href="https://www.google.com/maps/search/?api=1&query=Chez+Roger+Marseille" target="_blank">Chez Roger</a> / <a href="https://www.google.com/maps/search/?api=1&query=L+Avant+Cour+Marseille" target="_blank">L'Avant Cour</a> / <a href="https://www.google.com/maps/search/?api=1&query=L%27%C3%89puisette+Marseille" target="_blank">L'Épuisette ⭐</a> / <a href="https://www.google.com/maps/search/?api=1&query=Shanghai+Kitchen+Marseille" target="_blank">上海小廚</a>
+      </div>
+      <div class="meal-note">L'Épuisette 米其林一星，建議提前預約</div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/08 -->
+<tr>
+  <td><div class="date">7/08</div><div class="city">馬賽<br/>→亞維儂</div></td>
+  <td><div class="time">07:30</div><div class="first-stop">住宿→聖查爾斯站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/51+Rue+Honnorat+Marseille+13003/Gare+Saint-Charles+Marseille" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">馬賽住宿 <span class="arr">→</span> Gare Saint-Charles Marseille</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/KgiVjy42aThTyzXC7" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">聖查爾斯 <span class="arr">→</span> 薰衣草博物館 <span class="arr">→</span> 教皇宮 <span class="arr">→</span> 斷橋 <span class="arr">→</span> 藝術節 <span class="arr">→</span> 亞維儂TGV站 <span class="arr">→</span> 住宿</div>
+    <div class="warn">⚠️ 薰衣草博物館 Google Maps 顯示暫時關閉，出發前請確認</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        午餐：<a href="https://www.google.com/maps/search/?api=1&query=restaurant+Place+du+Palais+Avignon" target="_blank">教皇宮廣場周邊餐廳</a>（14:30–15:30）
+      </div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/09 -->
+<tr>
+  <td><div class="date">7/09</div><div class="city">馬賽<br/>→尼斯</div></td>
+  <td><div class="time">07:30</div><div class="first-stop">住宿→FlixBus站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/51+Rue+Honnorat+Marseille+13003/Gare+Routiere+Saint-Charles+Marseille" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">馬賽住宿 <span class="arr">→</span> 巴士站（步行）</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/HK7AdNmxNEPiBK25A" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">馬賽巴士站 <span class="arr">→</span> 尼斯機場 <span class="arr">→</span> 住宿 <span class="arr">→</span> 花市 <span class="arr">→</span> 聖雷帕拉特 <span class="arr">→</span> Florian <span class="arr">→</span> MAMAC <span class="arr">→</span> Place Garibaldi <span class="arr">→</span> 英國人大道 <span class="arr">→</span> 住宿</div>
+    <div class="warn">🚌 FlixBus Route 404｜08:10出發→10:20抵尼斯機場T1｜訂位：3348248476｜座位 10C/10D</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        午餐：<a href="https://www.google.com/maps/search/?api=1&query=Lou+Pilha+Leva+Nice" target="_blank">Lou Pilha Leva</a>（花市旁，Socca 現烤）<br/>
+        下午茶：<a href="https://www.google.com/maps/search/?api=1&query=The+Daily+Rick+Nice" target="_blank">The Daily Rick ☕</a><br/>
+        晚餐（擇一）：<a href="https://www.google.com/maps/search/?api=1&query=La+Merenda+Nice" target="_blank">La Merenda</a> / <a href="https://www.google.com/maps/search/?api=1&query=Chez+Acchiardo+Nice" target="_blank">Chez Acchiardo</a> / <a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Melanie+Nice" target="_blank">Mélanie</a>
+      </div>
+      <div class="meal-note">La Merenda 不可訂位、僅收現金，建議早到等位</div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/10 -->
+<tr>
+  <td><div class="date">7/10</div><div class="city">坎城<br/>一日遊</div></td>
+  <td><div class="time">08:00</div><div class="first-stop">住宿→電車站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/62+Boulevard+Paul+Montel+Nice/Gare+de+Cannes" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">尼斯住宿 <span class="arr">→</span> Gare de Cannes</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/scdzEvKMAueX7NJRA" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">坎城站 <span class="arr">→</span> 節慶宮 <span class="arr">→</span> Boulangerie Fred <span class="arr">→</span> Le Suquet <span class="arr">→</span> Forville 市場 <span class="arr">→</span> 坎城海灘 <span class="arr">→</span> Rue d'Antibes <span class="arr">→</span> 住宿</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        早餐：<a href="https://www.google.com/maps/search/?api=1&query=Boulangerie+Fred+Cannes" target="_blank">Boulangerie Fred</a>（5 Rue Venizelos）<br/>
+        午餐（擇一）：<a href="https://www.google.com/maps/search/?api=1&query=La+Creperie+66+Rue+Meynadier+Cannes" target="_blank">La Crêperie</a> / <a href="https://www.google.com/maps/search/?api=1&query=Taqueria+Lupita+Cannes" target="_blank">Lupita</a>（週二–五）/ <a href="https://www.google.com/maps/search/?api=1&query=Chez+Lene+Cannes" target="_blank">Chez Lene</a>（週一–五）/ <a href="https://www.google.com/maps/search/?api=1&query=Pho+Cannes+Gare" target="_blank">越式河粉</a>
+      </div>
+      <div class="meal-note">docx 備注：午餐未列入景點地圖，自行擇一前往</div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/11 -->
+<tr>
+  <td><div class="date">7/11</div><div class="city">尼斯<br/>深度遊</div></td>
+  <td><div class="time">10:00</div><div class="first-stop">夏卡爾博物館</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/62+Boulevard+Paul+Montel+Nice/Musee+Chagall+Nice" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">尼斯住宿 <span class="arr">→</span> Musée Chagall Nice</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/SVNLW8Ctw2rxcgdt5" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge walking">walking</span>
+    <div class="stops">夏卡爾 <span class="arr">→</span> 梅德森大道 <span class="arr">→</span> 聖母大教堂 <span class="arr">→</span> 馬賽納廣場 <span class="arr">→</span> 城堡山丘 <span class="arr">→</span> 英大道夕陽 <span class="arr">→</span> 住宿</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        午餐：<a href="https://www.google.com/maps/search/?api=1&query=Socca+Nice+vieux+Nice" target="_blank">老城區覓食</a>（Socca / Pan Bagnat / Pissaladière）<br/>
+        小食：<a href="https://www.google.com/maps/search/?api=1&query=Focaccia+Fontaine+du+Soleil+Nice" target="_blank">🥖 佛卡夏麵包</a>（太陽神噴泉旁，邊走邊吃）<br/>
+        晚餐（擇一）：<a href="https://www.google.com/maps/search/?api=1&query=Le+Comptoir+du+Marche+Nice" target="_blank">Le Comptoir du Marché</a> / <a href="https://www.google.com/maps/search/?api=1&query=Sentimi+Nice+Garibaldi" target="_blank">Sentimi</a> / <a href="https://www.google.com/maps/search/?api=1&query=Ramen+Nice" target="_blank">🍜 拉麵店</a>
+      </div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/12 -->
+<tr>
+  <td><div class="date">7/12</div><div class="city">摩納哥<br/>一日遊</div></td>
+  <td><div class="time">08:00</div><div class="first-stop">住宿→電車站</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/62+Boulevard+Paul+Montel+Nice/Port+Hercule+Monaco" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">尼斯住宿 <span class="arr">→</span> 電車L2→機場站 <span class="arr">→</span> 換80號巴士 <span class="arr">→</span> Port Hercule Monaco</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://maps.app.goo.gl/g1Why7CAgdY9h9cQ9" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">Port Hercule <span class="arr">→</span> 親王宮（衛兵交接11:55）<span class="arr">→</span> 主教堂 <span class="arr">→</span> 市政廳 <span class="arr">→</span> 康達明市場 <span class="arr">→</span> Bateau Bus <span class="arr">→</span> F1髮夾彎 <span class="arr">→</span> 賭場 <span class="arr">→</span> 遊客中心 <span class="arr">→</span> 火車站 <span class="arr">→</span> 住宿</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        午餐：<a href="https://www.google.com/maps/search/?api=1&query=Marche+de+la+Condamine+Monaco" target="_blank">康達明市場美食街</a>（Truffle Bistrot / <a href="https://www.google.com/maps/search/?api=1&query=Mitron+Bakery+Monaco" target="_blank">Mitron Bakery</a>）
+      </div>
+      <div class="meal-note">先找座位再去點餐；部分餐廳送餐到桌</div>
+    </div>
+  </td>
+</tr>
+
+<!-- 7/13 -->
+<tr>
+  <td><div class="date">7/13</div><div class="city">返台<br/>啟程</div></td>
+  <td><div class="time">10:00</div><div class="first-stop">退房</div></td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-home" href="https://www.google.com/maps/dir/62+Boulevard+Paul+Montel+Nice/Promenade+des+Anglais+Nice" target="_blank">🏠 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">尼斯住宿 <span class="arr">→</span> 英國人大道</div>
+  </td>
+  <td>
+    <div class="btn-wrap">
+      <a class="btn btn-route" href="https://www.google.com/maps/dir/Promenade+des+Anglais+Nice/Nice+Cote+Azur+Airport" target="_blank">🗺️ 開啟地圖</a>
+    </div>
+    <span class="badge transit">transit</span>
+    <div class="stops">英國人大道最後時光 <span class="arr">→</span> 尼斯機場 T2（KL1478 16:55）</div>
+    <div class="meal-section">
+      <div class="meal-label">🍽️ 餐廳</div>
+      <div class="meal-list">
+        午餐：<a href="https://www.google.com/maps/search/?api=1&query=Poke+bowl+Nice+Gare" target="_blank">🥗 Poké 夏威夷拌飯</a>（尼斯火車站周邊，12:00）
+      </div>
+    </div>
+  </td>
+</tr>
+
+</tbody>
+</table>
+</body>
+</html>
