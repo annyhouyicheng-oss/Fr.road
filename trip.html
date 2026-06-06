@@ -336,6 +336,68 @@ function switchDay(idx) {
   window.scrollTo(0,0);
 }
 
+function renderContent() {
+  const content = document.getElementById('mainContent');
+  DAYS.forEach((d, i) => {
+    const sec = document.createElement('div');
+    sec.className = 'day-section' + (i === 0 ? ' active' : '');
+    sec.id = 'day-' + i;
+
+    let html = `<div class="day-header">
+      <div class="day-date">${d.date}（${d.weekday}）</div>
+      <div class="day-city">📍 ${d.city}</div>
+    </div>`;
+
+    html += `<div class="home-card">
+      <div class="home-icon">🏠</div>
+      <div class="home-body"><div class="home-name">${d.home.name}</div></div>
+      <a class="home-btn" onclick="openMap(${d.home.lat},${d.home.lng},'${d.home.name}');return false;">📍 座標</a>
+    </div>`;
+
+    html += `<div class="section-label">路線</div><div class="route-list">`;
+    d.routes.forEach(r => {
+      const dotClass = r.type === 'end' ? 'end' : r.type === 'transport' ? 'transport' : '';
+      html += `<div class="route-item">
+        <div class="route-dot ${dotClass}">${r.emoji}</div>
+        <div class="route-body">
+          <div class="route-name">${r.name}</div>
+          ${r.note ? `<div class="route-note">${r.note}</div>` : ''}
+          <div class="route-actions">
+            ${r.lat ? `<a class="btn-map" onclick="openMap(${r.lat},${r.lng},'${r.name}');return false;">📍 座標導航</a>` : ''}
+            ${r.routeUrl ? `<a class="btn-route" href="${r.routeUrl}" target="_blank">🗺️ Google路線</a>` : ''}
+          </div>
+        </div>
+      </div>`;
+    });
+    html += `</div>`;
+
+    if (d.meals && d.meals.length) {
+      const mealTypes = [...new Set(d.meals.map(m => m.type))];
+      mealTypes.forEach(type => {
+        const items = d.meals.filter(m => m.type === type);
+        html += `<div class="meal-section"><div class="meal-title">🍽️ ${type}推薦</div>`;
+        items.forEach(m => {
+          html += `<div class="meal-item">
+            <div class="meal-emoji">${m.emoji}</div>
+            <div class="meal-body">
+              <div class="meal-name">${m.name}</div>
+              ${m.desc ? `<div class="meal-desc">${m.desc}</div>` : ''}
+              <div style="display:flex;gap:6px;margin-top:5px;flex-wrap:wrap;">
+                ${m.lat ? `<a class="meal-btn" onclick="openMap(${m.lat},${m.lng},'${m.name}');return false;">📍 座標</a>` : ''}
+                ${m.routeUrl ? `<a class="meal-btn" href="${m.routeUrl}" target="_blank">🗺️ 路線</a>` : ''}
+              </div>
+            </div>
+          </div>`;
+        });
+        html += `</div>`;
+      });
+    }
+
+    sec.innerHTML = html;
+    content.appendChild(sec);
+  });
+}
+
 renderTabs();
 renderContent();
 
