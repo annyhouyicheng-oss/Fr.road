@@ -219,10 +219,11 @@ const DAYS = [
   },
   {
     id:'d9', date:'7/9', weekday:'四', city:'尼斯 Day 1',
-    home:{ name:'尼斯住宿', lat:43.6757, lng:7.2074, url:'https://reurl.cc/M2Qykm' },
+    home:{ name:'尼斯住宿 (2 Ave des Fleurs)', lat:43.6975, lng:7.2553, url:'https://www.google.com/maps/search/?api=1&query=43.697528,7.255306' },
     routes:[
       { emoji:'🚌', type:'transport', name:'馬賽 → 尼斯（Flixbus）', note:'巴士約2.5小時', routeUrl:'https://reurl.cc/L2OaX7' },
-      { emoji:'🏠', type:'transport', name:'尼斯機場T1 → 住宿', routeUrl:'https://reurl.cc/mpOxoA' },
+      { emoji:'🏠', type:'transport', name:'尼斯機場T2 → 住宿（輕軌L2）', note:'Alsace-Lorraine 站下車，步行1分鐘', routeUrl:'https://www.google.com/maps/dir/?api=1&origin=Nice+C%C3%B4te+d%27Azur+Airport+Terminal+2&destination=2+Avenue+des+Fleurs,+06000+Nice&travelmode=transit' },
+      { emoji:'🔑', type:'transport', name:'11:15 抵達住宿放行李', note:'房東允許 11:15 提前放行李 ✅｜正式入住 16:00｜退房 11:00', routeUrl:'https://www.google.com/maps/search/?api=1&query=43.697528,7.255306' },
       { emoji:'🌸', name:'Cours Saleya 花市', note:'週二至日 09:00–13:00，注意扒手', lat:43.6954, lng:7.2768, routeUrl:'https://reurl.cc/kpenlG' },
       { emoji:'⛪', name:'聖雷帕拉特大教堂', note:'尼斯主教堂', lat:43.6974, lng:7.2767, routeUrl:'https://reurl.cc/dp3Qmq' },
       { emoji:'🍬', name:'Confiserie Florian', note:'1956年百年糖果工坊，免費參觀', lat:43.6970, lng:7.2838, routeUrl:'https://reurl.cc/Wbm0xk' },
@@ -231,12 +232,14 @@ const DAYS = [
       { emoji:'🌊', name:'英國人大道', note:'地中海落日最美', lat:43.6951, lng:7.2683, routeUrl:'https://reurl.cc/V2xYKN' },
       { emoji:'💙', name:'#ILoveNice', note:'沿海岸步行至打卡地標', lat:43.6938, lng:7.2796, routeUrl:'https://reurl.cc/0mqWOl' },
       { emoji:'🎪', name:'Cours Saleya 夏夜市集', note:'手工藝市集', lat:43.6954, lng:7.2768, routeUrl:'https://reurl.cc/YDa3lX' },
-      { emoji:'🏠', type:'end', name:'返回住宿', routeUrl:'https://reurl.cc/N2Mxp9' },
+      { emoji:'🏠', type:'end', name:'返回住宿', routeUrl:'https://www.google.com/maps/dir/?api=1&origin=Cours+Saleya,+06300+Nice&destination=2+Avenue+des+Fleurs,+06000+Nice&travelmode=transit' },
     ],
     meals:[
+      { emoji:'🍽️', type:'午餐', name:'Bistrot des Fleurs', desc:'住宿對面步行1分鐘，法式溫馨小餐館，抵達首選', lat:43.6977, lng:7.2552, routeUrl:'https://www.google.com/maps/search/?api=1&query=Bistrot+des+Fleurs+13+Avenue+des+Fleurs+Nice' },
       { emoji:'🍽️', type:'午餐', name:'Lou Pilha Leva', desc:'道地Socca €3，站著吃現烤最香', lat:43.6959, lng:7.2766, routeUrl:'https://reurl.cc/mpOYRV' },
       { emoji:'🍦', type:'下午茶', name:'Fenocchio 冰淇淋', desc:'100+種口味，Place Rossetti旁', lat:43.6966, lng:7.2783, routeUrl:'https://reurl.cc/9WknbX' },
       { emoji:'☕', type:'下午茶', name:'Le Daily-Ric', desc:'燕麥碗、貝果，加里波第廣場附近', lat:43.6983, lng:7.2706, routeUrl:'https://reurl.cc/ovMYAv' },
+      { emoji:'🍕', type:'晚餐', name:'Crazy Pizza', desc:'舊城名店，花市步行2分鐘（6 Rue de la Préfecture）', lat:43.6961, lng:7.2732, routeUrl:'https://www.google.com/maps/search/?api=1&query=43.696139,7.273194' },
       { emoji:'🍽️', type:'晚餐', name:'La Merenda', desc:'傳統尼斯菜，週一六日公休，需預訂', lat:43.6966, lng:7.2749, routeUrl:'https://reurl.cc/np3Ydd' },
       { emoji:'🏠', type:'晚餐', name:'Chez Acchiardo', desc:'老城家庭式小館', lat:43.6963, lng:7.2752, routeUrl:'https://reurl.cc/M2QzQL' },
       { emoji:'🍽️', type:'晚餐', name:'Le Bistrot d\'Antoine', desc:'必比登推薦，強烈建議預訂', lat:43.6956, lng:7.2757, routeUrl:'https://reurl.cc/qpRKd0' },
@@ -244,9 +247,9 @@ const DAYS = [
   },
   {
     id:'d10', date:'7/10', weekday:'五', city:'坎城日遊',
-    home:{ name:'尼斯住宿', lat:43.6757, lng:7.2074, url:'https://reurl.cc/M2Qykm' },
+    home:{ name:'尼斯住宿 (2 Ave des Fleurs)', lat:43.6975, lng:7.2553, url:'https://www.google.com/maps/search/?api=1&query=43.697528,7.255306' },
     routes:[
-      { emoji:'🚌', type:'transport', name:'尼斯城站 → 坎城（17472公車）', routeUrl:'https://reurl.cc/53xbGM' },
+      { emoji:'🚶', type:'transport', name:'住宿步行 → 尼斯中央火車站 → 坎城（TER）', note:'沿 Gambetta 大道步行約8分鐘至火車站', routeUrl:'https://www.google.com/maps/dir/?api=1&origin=2+Avenue+des+Fleurs,+06000+Nice&destination=Gare+de+Nice-Ville&travelmode=walking' },
       { emoji:'🎬', name:'節慶宮', note:'走紅毯台階！明星手印：夢露、赫本', lat:43.5524, lng:7.0206, routeUrl:'https://reurl.cc/ep2VOj' },
       { emoji:'🏰', name:'老城區 Le Suquet', note:'中世紀石板路，俯瞰坎城港口', lat:43.5503, lng:7.0120, routeUrl:'https://reurl.cc/lpWaDA' },
       { emoji:'🛒', name:'Marché Forville 菜市場', note:'07:30–13:00，香料起司海鮮', lat:43.5523, lng:7.0132, routeUrl:'https://reurl.cc/mpOk01' },
@@ -265,7 +268,7 @@ const DAYS = [
   },
   {
     id:'d11', date:'7/11', weekday:'六', city:'尼斯 Day 2',
-    home:{ name:'尼斯住宿', lat:43.6757, lng:7.2074, url:'https://reurl.cc/M2Qykm' },
+    home:{ name:'尼斯住宿 (2 Ave des Fleurs)', lat:43.6975, lng:7.2553, url:'https://www.google.com/maps/search/?api=1&query=43.697528,7.255306' },
     routes:[
       { emoji:'🎨', name:'夏卡爾博物館', note:'17幅聖經巨型油畫，€10，週二休', lat:43.7096, lng:7.2706, routeUrl:'https://reurl.cc/Ga6GOd' },
       { emoji:'🛍️', name:'梅德森大道', note:'Avenue Jean Médecin，購物大道', lat:43.7060, lng:7.2653, routeUrl:'https://reurl.cc/ovMK6l' },
@@ -283,7 +286,7 @@ const DAYS = [
   },
   {
     id:'d12', date:'7/12', weekday:'日', city:'摩納哥日遊',
-    home:{ name:'尼斯住宿', lat:43.6757, lng:7.2074, url:'https://reurl.cc/M2Qykm' },
+    home:{ name:'尼斯住宿 (2 Ave des Fleurs)', lat:43.6975, lng:7.2553, url:'https://www.google.com/maps/search/?api=1&query=43.697528,7.255306' },
     routes:[
       { emoji:'🚆', type:'transport', name:'尼斯 → 摩納哥站', routeUrl:'https://reurl.cc/ovMvRM' },
       { emoji:'🏰', name:'親王宮', note:'11:55衛兵交接！提早10分占位', lat:43.7313, lng:7.4212, routeUrl:'https://reurl.cc/aXYXyY' },
@@ -295,7 +298,7 @@ const DAYS = [
       { emoji:'🎰', name:'蒙地卡羅賭場廣場', note:'超跑、名人藝術，進場需正裝', lat:43.7393, lng:7.4286, routeUrl:'https://reurl.cc/ep2Q3L' },
       { emoji:'📒', name:'摩納哥遊客中心', note:'免費領紅色護照蓋章！必去！', lat:43.7409, lng:7.4250, routeUrl:'https://reurl.cc/0mqkpY' },
       { emoji:'🚆', type:'transport', name:'摩納哥站 → 尼斯', routeUrl:'https://reurl.cc/qpRaZR' },
-      { emoji:'🏠', type:'end', name:'返回尼斯住宿', routeUrl:'https://reurl.cc/V2xn8b' },
+      { emoji:'🏠', type:'end', name:'返回尼斯住宿', routeUrl:'https://www.google.com/maps/dir/?api=1&origin=Gare+de+Nice-Ville&destination=2+Avenue+des+Fleurs,+06000+Nice&travelmode=walking' },
     ],
     meals:[
       { emoji:'🍝', type:'午餐', name:'Truffle Bistrot', desc:'康達明市場義大利麵、排餐', lat:43.7341, lng:7.4199, routeUrl:'https://reurl.cc/R2VRWn' },
@@ -304,10 +307,10 @@ const DAYS = [
   },
   {
     id:'d13', date:'7/13', weekday:'一', city:'返台日',
-    home:{ name:'尼斯住宿', lat:43.6757, lng:7.2074, url:'https://reurl.cc/M2Qykm' },
+    home:{ name:'尼斯住宿 (2 Ave des Fleurs)', lat:43.6975, lng:7.2553, url:'https://www.google.com/maps/search/?api=1&query=43.697528,7.255306' },
     routes:[
       { emoji:'🌊', name:'英國人大道（晨走）', note:'最後一眼地中海', lat:43.6951, lng:7.2683, routeUrl:'https://reurl.cc/Z2k8Vp' },
-      { emoji:'✈️', type:'transport', name:'英國人大道 → 尼斯機場T2', note:'提早3小時到機場', lat:43.6650, lng:7.2156, routeUrl:'https://reurl.cc/6GmXqd' },
+      { emoji:'✈️', type:'transport', name:'住宿 → 尼斯機場T2（輕軌L2）', note:'提早3小時到機場，Alsace-Lorraine 站上車直達', lat:43.6650, lng:7.2156, routeUrl:'https://www.google.com/maps/dir/?api=1&origin=2+Avenue+des+Fleurs,+06000+Nice&destination=Nice+C%C3%B4te+d%27Azur+Airport+Terminal+2&travelmode=transit' },
       { emoji:'🏠', type:'end', name:'飛往阿姆斯特丹 → 台灣' },
     ],
     meals:[
