@@ -1,4 +1,4 @@
-const CACHE_NAME = 'icfsn2026-v7';
+const CACHE_NAME = 'icfsn2026-v9';
 const ASSETS = [
   '/Fr.road/',
   '/Fr.road/index.html',
