@@ -2,7 +2,7 @@
   "name": "ICFSN 2026 · 法國・摩納哥",
   "short_name": "ICFSN 2026",
   "description": "法國・摩納哥旅遊行程規劃",
-  "start_url": "/Fr.road/index.html",
+  "start_url": "/Fr.road/trip.html",
   "scope": "/Fr.road/",
   "display": "standalone",
   "background_color": "#0f1628",
