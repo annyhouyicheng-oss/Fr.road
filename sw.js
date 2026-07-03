@@ -2,15 +2,16 @@
 // ICFSN 2026 法國・摩納哥旅遊 — Service Worker
 // ═══════════════════════════════════════════════════════════════
 
-const CACHE_NAME = 'icfsn2026-v39';
+const CACHE_NAME = 'icfsn2026-v40';
 const RUNTIME_CACHE = 'icfsn2026-runtime-v39';
 
 // 安裝時預先快取的核心資源
 const PRECACHE_URLS = [
   './index.html',
+  './trip.html',
   './manifest.json',
-  './icon-192.png',
-  './icon-512.png',
+  './icon-192-red.png',
+  './icon-512-red.png',
   './icon.svg',
   // React / Babel CDN（離線備用）
   'https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js',
@@ -132,8 +133,8 @@ self.addEventListener('push', event => {
   event.waitUntil(
     self.registration.showNotification(data.title || 'ICFSN 2026', {
       body: data.body || '旅遊提醒',
-      icon: './icon-192.png',
-      badge: './icon-192.png',
+      icon: './icon-192-red.png',
+      badge: './icon-192-red.png',
     })
   );
 });
